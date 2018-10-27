@@ -3,7 +3,7 @@ import axios from 'axios'
 import url from 'js/api.js'
 import './category.css'
 import 'css/common.css'
-import Foot from 'components/Foot.vue'
+import mixin from 'js/mixin.js'
 
 let app = new Vue({
     el: '#app',
@@ -13,9 +13,6 @@ let app = new Vue({
         rankData: null,
         subListData: null,
         currentId: 800
-    },
-    components: {
-        Foot
     },
     created: function(){
         this.getTopList()
@@ -48,16 +45,11 @@ let app = new Vue({
             .then((res)=>{
                 this.subListData = res.data.data;
             })
+        },
+        getSearch(id,name){
+            location.href=`/search.html?id=${id}&keyword=${name}`
         }
     },
-    filters: {
-        priceNum(value){
-            let newValue = value-Math.floor(value)
-            if(newValue===0){
-                return value+'.00'
-            }else{
-                return value + '0'
-            }
-        }
-    }
+    mixins: [mixin]
+    
 })
