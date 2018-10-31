@@ -3,7 +3,7 @@
       <ul>
         <li :class="{active:current===index}" 
         v-for="(list,index) in navLists"
-        @click="changeNav(list,index)"
+        @click="changeNav(list,index)" :key="index"
         >
           <a>
             <i :class="list.icon"></i>

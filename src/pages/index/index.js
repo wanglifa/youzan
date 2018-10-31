@@ -26,7 +26,7 @@ let app = new Vue({
     methods: {
         getLists(){
             if(this.allLoaded) return;
-            //是否正在加载
+            //是否正在加载，当数据还未完成加载就禁用无限滚动 
             this.loading = true
             axios.post(url.hostlists,{
                 pageNum: this.pageNum,
