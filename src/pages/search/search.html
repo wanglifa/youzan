@@ -54,7 +54,7 @@
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="30">
           <li class="goods-item" v-for="list in searchLists" v-if="searchLists">
-            <a href="https://h5.youzan.com/v2/showcase/goods?alias=2755moo9i2r1c&amp;source=yzapp&amp;f_platform=yzapp">
+            <a :href="'goods.html?id='+list.id+'&name='+list.name">
               <div class="thumb">
                 <img :src="list.img">
                 <i :class="{'sell-out':list.isOut}"></i>

@@ -6,6 +6,7 @@ import axios from 'axios'
 import { InfiniteScroll } from 'mint-ui';
 import Foot from 'components/Foot.vue'
 import Swipe from 'components/Swipe.vue'
+import mixin from 'js/mixin.js'
 Vue.use(InfiniteScroll);
 let app = new Vue({
     el: '#app',
@@ -28,7 +29,7 @@ let app = new Vue({
             if(this.allLoaded) return;
             //是否正在加载，当数据还未完成加载就禁用无限滚动 
             this.loading = true
-            axios.post(url.hostlists,{
+            axios.get(url.hostlists,{
                 pageNum: this.pageNum,
                 pageSize: this.pageSize
             }).then((res)=>{
@@ -55,7 +56,7 @@ let app = new Vue({
         }
     },
     components: {
-        Foot,
         Swipe
-    }
+    },
+    mixins: [mixin]
 })

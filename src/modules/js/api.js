@@ -4,7 +4,16 @@ let url = {
     topList: '/category/topList',
     rank: '/category/rank',
     subList: '/category/subList',
-    search: '/search/list'
+    search: '/search/list',
+    defails: '/goods/details',
+    deal: '/goods/deal',
+    evaluation: '/goods/evaluation',
+    add: '/cart/add',
+    cartList: '/cart/list',
+    update: '/cart/update',
+    reduce: '/cart/reduce',
+    remove: '/cart/remove',
+    mrremove: '/cart/mrremove'
 }
 let host = 'http://rap2api.taobao.org/app/mock/105486'
 for(var key in url){
