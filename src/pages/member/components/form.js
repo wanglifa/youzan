@@ -31,6 +31,11 @@ export default {
             this.id = ad.id
         }
     },
+    computed: {
+        lists(){
+            return this.$store.state.lists
+        }
+    },
     watch: {
         provinceValue(val){
             if(val === -1) return
@@ -70,36 +75,46 @@ export default {
                     this.districtValue = -1
                 }
             }
+        },
+        lists :{
+            handler(){
+                this.$router.go(-1)
+            },
+            deep: true
         }
     },
     methods: {
         add(){
             let {name, tel, provinceValue, cityValue, districtValue, address} = this
             let data = {name, tel, provinceValue, cityValue, districtValue, address}
+            data.id = this.id
             if(this.type === 'add'){
-                data.id = this.id
-                Address.add(data).then(res=>{
-                    //跳到上一页
-                    this.$router.go(-1)
-                })
+                // Address.add(data).then(res=>{
+                //     //跳到上一页
+                //     this.$router.go(-1)
+                // })
+                this.$store.dispatch('addAction',data)
             }
             if(this.type === 'edit'){
-                Address.update(data).then(res=>{
-                    this.$router.go(-1)
-                })
+                // Address.update(data).then(res=>{
+                //     this.$router.go(-1)
+                // })
+                this.$store.dispatch('updateAction', data)
             }
         },
         remove(){
             if(window.confirm('确定删除？')){
-                Address.remove(this.id).then(res=>{
-                    this.$router.go(-1)
-                })
+                // Address.remove(this.id).then(res=>{
+                //     this.$router.go(-1)
+                // })
+                this.$store.dispatch('removeAction',this.id)
             }
         },
         setDefault(){
-            Address.setdefault(this.id).then(res=>{
-                this.$router.go(-1)
-            })
+            // Address.setdefault(this.id).then(res=>{
+            //     this.$router.go(-1)
+            // })
+            this.$store.dispatch('setAction',this.id)
         }
     }
 }
