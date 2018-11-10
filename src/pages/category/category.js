@@ -20,7 +20,7 @@ let app = new Vue({
     },
     methods: {
         getTopList(){
-            axios.post(url.topList)
+            axios.get(url.topList)
             .then((res)=>{
                 this.topList = res.data.lists
             })
@@ -28,8 +28,9 @@ let app = new Vue({
         getrank(id,index){
             this.current = index,
             this.currentId = id;
+            console.log(this.current,index)
             if(id === 800){
-                axios.post(url.rank)
+                axios.get(url.rank)
                 .then((res)=>{
                     this.rankData = res.data.data
                 })

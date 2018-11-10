@@ -18,10 +18,15 @@
   <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
   <title>分类</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+  [v-cloak]{
+    display: none
+  }
+  </style>
 </head>
 
 <body class=" " style="">
-  <div id="app">
+  <div id="app" v-cloak>
     <div class="container with-bottom-nav" style="min-height: 667px; height: 667px;">
         <div class="custom-search js-search-bar">
           <form>
@@ -68,11 +73,12 @@
                   <div class="hot-goods">
                     <div class="hot-title">
                       <p class="pull-left">热销商品榜</p>
-                      <a href="https://maijia.youzan.com/mars/rank/hotgoods" class="pull-right icon-right">更多</a>
+                      <a class="pull-right icon-right" href="search.html">更多</a>
                     </div>
                     <ul>
-                      <li class="goods-item" v-for="(list,index) in rankData.hotGoods">
-                        <a href="https://h5.youzan.com/v2/showcase/goods?alias=27cjv5wdsb4to&amp;source=yzapp&amp;f_platform=yzapp">
+                      <li class="goods-item" v-for="(list,index) in rankData.hotGoods"
+                      >
+                        <a :href="'goods.html?id='+list.id+'&name='+list.name">
                           <div class="thumb badge center-img">
                             <img :src="list.img">
                             <span class="num">{{index+1}}</span>
@@ -92,13 +98,13 @@
                   <div class="hot-shops" style="position: relative;">
                     <div class="hot-title">
                       <p class="pull-left">TOP店铺榜</p>
-                      <a href="https://maijia.youzan.com/mars/rank/hotshops" class="pull-right icon-right">更多</a>
+                      <a class="pull-right icon-right">更多</a>
                     </div>
                     <ul>
                       <li class="shop-item" v-for="(list,index) in rankData.hotShops">
                         <div class="shop-title">
                           <span class="badge">{{index+1}}</span>
-                          <a href="https://h5.youzan.com/v2/showcase/homepage?kdt_id=10695955&amp;source=yzapp">{{list.name}}</a>
+                          <a>{{list.name}}</a>
                           <span class="follows"> / 关注度: {{list.follows}}</span>
                         </div>
                         <ul class="shop-images">
