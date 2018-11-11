@@ -21,19 +21,19 @@ let {index} = qs.parse(location.search.substring(1))
 let navLists = [{
   "name": "有赞",
   "icon": "icon-home",
-  "href": "/index.html"
+  "href": "index.html"
 },{
   "name": "分类",
   "icon": "icon-category",
-  "href": "/category.html"
+  "href": "category.html"
 },{
   "name": "购物车",
   "icon": "icon-cart",
-  "href": "/cart.html"
+  "href": "cart.html"
 },{
   "name": "我",
   "icon": "icon-user",
-  "href": "/member.html"
+  "href": "member.html"
 }]
 export default {
     name: 'Footer',
