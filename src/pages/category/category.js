@@ -48,7 +48,7 @@ let app = new Vue({
             })
         },
         getSearch(id,name){
-            location.href=`/search.html?id=${id}&keyword=${name}`
+            location.href=`search.html?id=${id}&keyword=${name}`
         }
     },
     mixins: [mixin]

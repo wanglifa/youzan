@@ -20,7 +20,7 @@ let url = {
     addressUpdate: '/address/update',
     addressSetDefault: '/address/setDefault'
 }
-let host = 'http://rap2api.taobao.org/app/mock/105486'
+let host = ' https://easy-mock.com/mock/5bf64f88bd33e47f3c8fbe43'
 for(var key in url){
     if(url.hasOwnProperty(key)){
         url[key] = host + url[key]
