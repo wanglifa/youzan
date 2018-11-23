@@ -13,6 +13,7 @@ let app = new Vue({
     data: {
         list: null,
         total: 0,
+        number: 0,
         editingShop: null,
         editingShopIndex: -1,
         removePopup: false,
@@ -62,15 +63,18 @@ let app = new Vue({
             if(this.list && this.list.length){
                 let arr = []
                 let total = 0
+                let number = 0
                 this.list.forEach(shop=>{
                     shop.goodsList.forEach(good=>{
                         if(good.checked){
                             arr.push(good)
+                            number = arr.length
                             total+=good.price*good.number 
                         }
                     })  
                 })
                 this.total = total
+                this.number = number
                 return arr
             }
             return []
